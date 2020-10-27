@@ -28,6 +28,16 @@ class OpenCommercial {
     inputLine = keyboard.readLine();
 
     /* Replace this comment with your solution.  */
+    URL companyUrl = new URL("http://www." + inputLine + ".com/");
+    BufferedReader companyText = new BufferedReader(new InputStreamReader(companyUrl.openStream()));
+    String[] companyTextList = new String[5];
+    
+    for (int i = 0; i < 5; i++) {
+        companyTextList[i] = companyText.readLine();
+    }
 
+    for (int i = 4; i >= 0; i--) {
+        System.out.println(companyTextList[i]);
+    }
   }
 }
