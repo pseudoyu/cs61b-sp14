@@ -68,8 +68,11 @@ class Date {
     public static int daysInMonth(int month, int year) {
         switch (month) {
             case 2:
-                if (isLeapYear(year)) return 29;
-                else return 28;
+                if (isLeapYear(year)) {
+                    return 29;
+                } else {
+                    return 28;
+                }
             case 4:
             case 6:
             case 9:
@@ -86,7 +89,12 @@ class Date {
      *  Years prior to A.D. 1 are NOT valid.
      */
     public static boolean isValidDate(int month, int day, int year) {
-        return year >= 1 && year <= 9999 && month >= 1 && month <= 12 && day >= 1 && day <= daysInMonth(month, year);
+        if ((year >= 1 && year <= 9999) && (month >= 1 && month <= 12) && (day >= 1 && day <= daysInMonth(month, year))) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     /** Returns a string representation of this date in the form month/day/year.
@@ -102,20 +110,22 @@ class Date {
      *  @return true if and only if this Date is before d.
      */
     public boolean isBefore(Date d) {
-        // return true;                        // replace this line with your solution
         if (this.difference(d) < 0) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     /** Determines whether this Date is after the Date d.
      *  @return true if and only if this Date is after d.
      */
     public boolean isAfter(Date d) {
-        // return true;                        // replace this line with your solution
         if (this.difference(d) > 0) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     /** Returns the number of this Date in the year.
